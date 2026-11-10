@@ -1,0 +1,16 @@
+# Environnement Python
+.venv/
+
+# Fichiers temporaires Python
+__pycache__/
+*.pyc
+
+# Fichiers temporaires Jupyter
+.ipynb_checkpoints/
+
+# Fichiers confidentiels
+.env
+
+# Donnees originales et preparees
+donnees/donnees_originales/
+donnees/donnees_preparees/
