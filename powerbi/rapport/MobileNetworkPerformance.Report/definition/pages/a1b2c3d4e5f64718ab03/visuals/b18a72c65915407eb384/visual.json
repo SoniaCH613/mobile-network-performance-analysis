@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "b18a72c65915407eb384",
+  "position": {
+    "x": 652,
+    "y": 430,
+    "z": 1023,
+    "width": 604,
+    "height": 245,
+    "tabOrder": 23
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vue_mesures_detaillees"
+                    }
+                  },
+                  "Property": "date_mesure"
+                }
+              },
+              "queryRef": "vue_mesures_detaillees.date_mesure",
+              "nativeQueryRef": "date_mesure",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vue_mesures_detaillees"
+                    }
+                  },
+                  "Property": "Taux Web inférieur à 5s"
+                }
+              },
+              "queryRef": "vue_mesures_detaillees.Taux Web inférieur à 5s",
+              "nativeQueryRef": "Taux Web inférieur à 5s",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vue_mesures_detaillees"
+                    }
+                  },
+                  "Property": "nom_operateur"
+                }
+              },
+              "queryRef": "vue_mesures_detaillees.nom_operateur",
+              "nativeQueryRef": "nom_operateur",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Évolution du taux de chargement Web en moins de 5 s'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

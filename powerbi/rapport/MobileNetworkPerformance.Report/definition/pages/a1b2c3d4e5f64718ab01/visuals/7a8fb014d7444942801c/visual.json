@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "7a8fb014d7444942801c",
+  "position": {
+    "x": 652,
+    "y": 184,
+    "z": 1021,
+    "width": 604,
+    "height": 225,
+    "tabOrder": 21
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vue_mesures_detaillees"
+                    }
+                  },
+                  "Property": "nom_operateur"
+                }
+              },
+              "queryRef": "vue_mesures_detaillees.nom_operateur",
+              "nativeQueryRef": "nom_operateur",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "vue_mesures_detaillees"
+                    }
+                  },
+                  "Property": "Débit montant médian"
+                }
+              },
+              "queryRef": "vue_mesures_detaillees.Débit montant médian",
+              "nativeQueryRef": "Débit montant médian",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Débit montant médian par opérateur (Mbps)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

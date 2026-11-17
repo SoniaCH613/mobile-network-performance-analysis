@@ -1,0 +1,33 @@
+INSTALLATION DU RAPPORT POWER BI
+
+1. Décompresse le contenu du ZIP à la racine de ton dépôt :
+   mobile-network-performance-analysis/
+
+   Le ZIP fusionne les éléments dans le dossier powerbi/ déjà existant.
+   Le CSV inclus correspond au fichier envoyé ; il peut remplacer l'ancienne copie.
+
+2. Sur Windows, ouvre PowerShell dans le dépôt et exécute :
+   powershell -ExecutionPolicy Bypass -File .\powerbi\configurer_source_powerbi.ps1
+
+   Le script configure le paramètre pCheminCSV avec le chemin local exact du CSV.
+
+3. Ouvre ce fichier avec Power BI Desktop :
+   powerbi\rapport\MobileNetworkPerformance.pbip
+
+4. Dans Power BI Desktop, clique sur Accueil > Actualiser.
+   Cela charge les données et remplit les cartes et graphiques.
+
+5. Enregistre le projet avec Ctrl+S.
+
+6. Vérifie les changements dans Git :
+   git status
+
+Le CSV est ignoré par powerbi/.gitignore (exports/*.csv).
+Pousse le projet Power BI, pas le CSV :
+   git add powerbi/rapport powerbi/configurer_source_powerbi.ps1 powerbi/README_POWERBI.md powerbi/.gitignore
+   git commit -m "Ajout du rapport Power BI"
+   git push
+
+Si le fichier .pbip ne s'ouvre pas, vérifie dans Power BI Desktop :
+Fichier > Options et paramètres > Options > Fonctionnalités en préversion,
+puis active Power BI Project (.pbip) et le format de rapport amélioré PBIR s'il est proposé.

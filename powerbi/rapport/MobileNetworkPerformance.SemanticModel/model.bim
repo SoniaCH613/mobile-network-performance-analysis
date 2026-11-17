@@ -1,0 +1,288 @@
+{
+  "name": "MobileNetworkPerformance",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "fr-FR",
+    "sourceQueryCulture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "expressions": [
+      {
+        "name": "pCheminCSV",
+        "kind": "m",
+        "expression": "\"C:\\A_CONFIGURER\\vue_mesures_detaillees.csv\" meta [IsParameterQuery=true, Type=\"Text\", IsParameterQueryRequired=true]",
+        "annotations": []
+      }
+    ],
+    "tables": [
+      {
+        "name": "vue_mesures_detaillees",
+        "lineageTag": "49f811d6-d1d0-4e74-83b6-073b0d80de0a",
+        "columns": [
+          {
+            "name": "id_mesure",
+            "dataType": "int64",
+            "sourceColumn": "id_mesure",
+            "summarizeBy": "none",
+            "lineageTag": "0af7361c-4335-407f-bd2b-4f425d66c5b4",
+            "formatString": "0",
+            "isHidden": true
+          },
+          {
+            "name": "nom_operateur",
+            "dataType": "string",
+            "sourceColumn": "nom_operateur",
+            "summarizeBy": "none",
+            "lineageTag": "f5b18478-e287-4ef6-9d40-6cb8cfd3505d"
+          },
+          {
+            "name": "nom_zone",
+            "dataType": "string",
+            "sourceColumn": "nom_zone",
+            "summarizeBy": "none",
+            "lineageTag": "c4e2ab0e-84ea-4971-9f1e-70a91036e211"
+          },
+          {
+            "name": "code_protocole",
+            "dataType": "string",
+            "sourceColumn": "code_protocole",
+            "summarizeBy": "none",
+            "lineageTag": "de4c9474-44b7-4ee1-803b-af3dc612e112"
+          },
+          {
+            "name": "libelle",
+            "dataType": "string",
+            "sourceColumn": "libelle",
+            "summarizeBy": "none",
+            "lineageTag": "6ff70f80-e3e1-4dab-b71d-b07a52f08d48"
+          },
+          {
+            "name": "date_mesure",
+            "dataType": "dateTime",
+            "sourceColumn": "date_mesure",
+            "summarizeBy": "none",
+            "lineageTag": "e27cebdf-0fc7-43eb-88ac-5cace31cfd79",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "code_commune_insee",
+            "dataType": "string",
+            "sourceColumn": "code_commune_insee",
+            "summarizeBy": "none",
+            "lineageTag": "becd7a10-18ee-48c1-9c19-94d13732fcb3"
+          },
+          {
+            "name": "debit_descendant_mbps",
+            "dataType": "double",
+            "sourceColumn": "debit_descendant_mbps",
+            "summarizeBy": "none",
+            "lineageTag": "7127b846-c7a3-4d08-91d7-31d491af4c76",
+            "formatString": "0.00"
+          },
+          {
+            "name": "debit_montant_mbps",
+            "dataType": "double",
+            "sourceColumn": "debit_montant_mbps",
+            "summarizeBy": "none",
+            "lineageTag": "73e4174d-b50e-4066-a5d2-578621f17d81",
+            "formatString": "0.00"
+          },
+          {
+            "name": "duree_acces_web_secondes",
+            "dataType": "double",
+            "sourceColumn": "duree_acces_web_secondes",
+            "summarizeBy": "none",
+            "lineageTag": "e131f26a-4caf-482e-83d6-8e5193f9d70a",
+            "formatString": "0.00"
+          },
+          {
+            "name": "web_charge_5s",
+            "dataType": "boolean",
+            "sourceColumn": "web_charge_5s",
+            "summarizeBy": "none",
+            "lineageTag": "4cb2228b-1bea-479d-a9c6-f5b33df9f78a"
+          },
+          {
+            "name": "web_charge_10s",
+            "dataType": "boolean",
+            "sourceColumn": "web_charge_10s",
+            "summarizeBy": "none",
+            "lineageTag": "3ff75071-10c5-4e91-b9e9-11df08c96038"
+          },
+          {
+            "name": "video_qualite_correcte",
+            "dataType": "boolean",
+            "sourceColumn": "video_qualite_correcte",
+            "summarizeBy": "none",
+            "lineageTag": "9136f673-7613-4c6a-8b1b-7d378c1ab1c9"
+          },
+          {
+            "name": "video_qualite_parfaite",
+            "dataType": "boolean",
+            "sourceColumn": "video_qualite_parfaite",
+            "summarizeBy": "none",
+            "lineageTag": "e875fc25-3e04-43b7-9f2a-c80c6f410a60"
+          },
+          {
+            "name": "envoi_fichier_reussi",
+            "dataType": "boolean",
+            "sourceColumn": "envoi_fichier_reussi",
+            "summarizeBy": "none",
+            "lineageTag": "20aae94d-f200-4dbe-b7ca-a13e78103d58"
+          }
+        ],
+        "measures": [
+          {
+            "name": "Nombre de mesures",
+            "expression": "COUNTROWS('vue_mesures_detaillees')",
+            "formatString": "#,##0",
+            "lineageTag": "7d278de4-7335-4d26-9576-95fee49e920f",
+            "description": "Nombre de lignes visibles dans le contexte de filtre courant."
+          },
+          {
+            "name": "Nombre de communes",
+            "expression": "DISTINCTCOUNT('vue_mesures_detaillees'[code_commune_insee])",
+            "formatString": "#,##0",
+            "lineageTag": "cfd414bd-c906-432c-b229-3234f105e4f5",
+            "description": "Nombre de communes distinctes dans le contexte courant."
+          },
+          {
+            "name": "Débit descendant médian",
+            "expression": "CALCULATE(MEDIAN('vue_mesures_detaillees'[debit_descendant_mbps]), 'vue_mesures_detaillees'[code_protocole] = \"DOWNLOAD\")",
+            "formatString": "#,##0.0 \"Mbps\"",
+            "lineageTag": "d1ae4ace-c8df-47eb-a737-36653fb40f7a",
+            "description": "Médiane du débit descendant, calculée uniquement sur les tests DOWNLOAD."
+          },
+          {
+            "name": "Débit montant médian",
+            "expression": "CALCULATE(MEDIAN('vue_mesures_detaillees'[debit_montant_mbps]), 'vue_mesures_detaillees'[code_protocole] = \"UPLOAD\")",
+            "formatString": "#,##0.0 \"Mbps\"",
+            "lineageTag": "271599fc-d432-40b6-b941-4104b4c33d7f",
+            "description": "Médiane du débit montant, calculée uniquement sur les tests UPLOAD."
+          },
+          {
+            "name": "Temps médian Web",
+            "expression": "CALCULATE(MEDIAN('vue_mesures_detaillees'[duree_acces_web_secondes]), 'vue_mesures_detaillees'[code_protocole] = \"WEB\")",
+            "formatString": "0.00 \"s\"",
+            "lineageTag": "d08dbf87-f90a-45bb-ba65-b5745f253f5b",
+            "description": "Durée médiane d'accès Web, calculée uniquement sur les tests WEB."
+          },
+          {
+            "name": "Taux Web inférieur à 5s",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"WEB\", 'vue_mesures_detaillees'[web_charge_5s] = TRUE()), CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"WEB\"))",
+            "formatString": "0.0%",
+            "lineageTag": "252bbc19-2d65-43e2-a7fb-eb98ab4d9137",
+            "description": "Part des tests WEB chargés en moins de 5 secondes."
+          },
+          {
+            "name": "Taux Web inférieur à 10s",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"WEB\", 'vue_mesures_detaillees'[web_charge_10s] = TRUE()), CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"WEB\"))",
+            "formatString": "0.0%",
+            "lineageTag": "eede2fd6-5e99-4e2f-8bc4-d14a4db961c6",
+            "description": "Part des tests WEB chargés en moins de 10 secondes."
+          },
+          {
+            "name": "Taux streaming parfait",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"STREAM\", 'vue_mesures_detaillees'[video_qualite_parfaite] = TRUE()), CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"STREAM\"))",
+            "formatString": "0.0%",
+            "lineageTag": "94a681b0-c5ec-4bc7-b275-bdf665c5b31b",
+            "description": "Part des tests STREAM avec une qualité vidéo parfaite."
+          },
+          {
+            "name": "Taux streaming qualité correcte",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"STREAM\", 'vue_mesures_detaillees'[video_qualite_correcte] = TRUE()), CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"STREAM\"))",
+            "formatString": "0.0%",
+            "lineageTag": "b610774b-d2ab-4503-a712-61d776d62a16",
+            "description": "Part des tests STREAM avec une qualité vidéo au moins correcte."
+          },
+          {
+            "name": "Taux de réussite ULH",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"ULH\", 'vue_mesures_detaillees'[envoi_fichier_reussi] = TRUE()), CALCULATE(COUNTROWS('vue_mesures_detaillees'), 'vue_mesures_detaillees'[code_protocole] = \"ULH\"))",
+            "formatString": "0.0%",
+            "lineageTag": "331ae2ba-4e6e-4d75-b748-8c4d0a302b1c",
+            "description": "Part des tests ULH réussis, rapportée à tous les tests ULH."
+          }
+        ],
+        "partitions": [
+          {
+            "name": "vue_mesures_detaillees-Import",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(",
+                "        File.Contents(pCheminCSV),",
+                "        [Delimiter = \",\", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]",
+                "    ),",
+                "    EnTetes = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),",
+                "    Types = Table.TransformColumnTypes(",
+                "        EnTetes,",
+                "        {",
+                "            {\"id_mesure\", Int64.Type},",
+                "            {\"nom_operateur\", type text},",
+                "            {\"nom_zone\", type text},",
+                "            {\"code_protocole\", type text},",
+                "            {\"libelle\", type text},",
+                "            {\"date_mesure\", type date},",
+                "            {\"code_commune_insee\", type text},",
+                "            {\"debit_descendant_mbps\", type number},",
+                "            {\"debit_montant_mbps\", type number},",
+                "            {\"duree_acces_web_secondes\", type number},",
+                "            {\"web_charge_5s\", type text},",
+                "            {\"web_charge_10s\", type text},",
+                "            {\"video_qualite_correcte\", type text},",
+                "            {\"video_qualite_parfaite\", type text},",
+                "            {\"envoi_fichier_reussi\", type text}",
+                "        },",
+                "        \"en-US\"",
+                "    ),",
+                "    IndicateursBooleens = Table.TransformColumns(",
+                "        Types,",
+                "        {",
+                "            {\"web_charge_5s\", each if _ = null or Text.Trim(Text.From(_)) = \"\" then null else Text.Lower(Text.Trim(Text.From(_))) = \"t\", type nullable logical},",
+                "            {\"web_charge_10s\", each if _ = null or Text.Trim(Text.From(_)) = \"\" then null else Text.Lower(Text.Trim(Text.From(_))) = \"t\", type nullable logical},",
+                "            {\"video_qualite_correcte\", each if _ = null or Text.Trim(Text.From(_)) = \"\" then null else Text.Lower(Text.Trim(Text.From(_))) = \"t\", type nullable logical},",
+                "            {\"video_qualite_parfaite\", each if _ = null or Text.Trim(Text.From(_)) = \"\" then null else Text.Lower(Text.Trim(Text.From(_))) = \"t\", type nullable logical},",
+                "            {\"envoi_fichier_reussi\", each if _ = null or Text.Trim(Text.From(_)) = \"\" then null else Text.Lower(Text.Trim(Text.From(_))) = \"t\", type nullable logical}",
+                "        }",
+                "    )",
+                "in",
+                "    IndicateursBooleens"
+              ]
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Source"
+          }
+        ]
+      }
+    ],
+    "relationships": [],
+    "cultures": [],
+    "roles": [],
+    "perspectives": [],
+    "functions": [],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"vue_mesures_detaillees\"]"
+      }
+    ]
+  }
+}
