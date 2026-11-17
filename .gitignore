@@ -14,3 +14,18 @@ __pycache__/
 # Donnees originales et preparees
 donnees/donnees_originales/
 donnees/donnees_preparees/
+# Environnement Python
+.venv/
+
+# Fichiers Python temporaires
+__pycache__/
+*.pyc
+
+# Fichiers Jupyter temporaires
+.ipynb_checkpoints/
+
+# Informations de connexion
+.env
+
+# Données originales
+donnees/**/*.csv
